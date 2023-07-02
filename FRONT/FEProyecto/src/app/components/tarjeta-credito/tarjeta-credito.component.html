@@ -1,0 +1,77 @@
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-lg-8 offset-lg-32" >
+            <div class="card">
+                <div class="card-body">
+                    <h3 class="titulo">Tarjetas Crédito</h3>
+                </div>
+            </div>
+<div class="row mt-4">
+    <div class="col lg-6">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="titulo">Agregar la Tarjeta</h5>
+                <form [formGroup]="form"   (ngSubmit)="AgragarTarjeta()" >
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" ><i class="fa-solid fa-user"
+                            [class.green-icon]="this.form.get('titular')?.valid"
+                            [class.red-icon]="this.form.get('titular')?.invalid && this.form.get('titular')?.touched"></i></span>
+                        <input type="text" class="form-control" placeholder="Titular" aria-label="Titulo" formControlName="titular">
+                      </div>
+                      <div class="input-group mb-3">
+                        <span class="input-group-text" ><i class="fa-solid fa-credit-card"
+                            [class.green-icon]="this.form.get('NumeroTarjeta')?.valid"
+                            [class.red-icon]="this.form.get('NumeroTarjeta')?.invalid && this.form.get('NumeroTarjeta')?.touched"></i></span>
+                        <input type="text" maxlength="16" class="form-control" placeholder="Numero de tarjeta" aria-label="Titulo" formControlName="NumeroTarjeta">
+                      </div>
+                    <div class="row">
+                        <div class="col-lg-7">
+                            <div class="input-group mb-3">
+                                <span class="input-group-text" ><i class="fa-solid fa-calendar-days"
+                                    [class.green-icon]="this.form.get('Expiracion')?.valid"
+                                    [class.red-icon]="this.form.get('Expiracion')?.invalid && this.form.get('Expiracion')?.touched"></i></span>
+                                <input type="text" maxlength="5" class="form-control" placeholder="MM/YY" aria-label="Titulo" formControlName="Expiracion">
+                              </div>
+                        </div>
+                        <div class="col-lg-5">
+                            <div class="input-group mb-3">
+                                <span class="input-group-text" ><i class="fa-solid fa-key"
+                                    [class.green-icon]="this.form.get('Cvv')?.valid"
+                                    [class.red-icon]="this.form.get('Cvv')?.invalid && this.form.get('Cvv')?.touched"></i></span>
+                                <input type="password" maxlength="3" class="form-control" placeholder="Cvv" aria-label="Titulo" formControlName="Cvv">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-grid gap-2">
+                        <button [disabled]="this.form.invalid" type="submit" class="btn btn-primary" >Aceptar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row mt-4">
+    <div class="col lg-6">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="titulo">Listado de Tarjetas</h5>
+                <table class="table">
+                    <thead>
+                        <tr *ngFor="let tarjeta of listTarjetas;let i=index">
+                            <td>{{tarjeta.titular}}</td>
+                            <td>{{tarjeta.NumeroTarjeta}}</td>
+                            <td>{{tarjeta.Expiracion}}</td>
+                            <td>{{tarjeta.Cvv}}</td>
+                            <td><i class="fa-sharp fa-solid fa-pen-to-square  text-info "></i></td>
+                            <td><i (click)="EliminarTarjeta(i)" class="fa-sharp fa-solid fa-trash"></i></td>                       
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+        </div>
+    </div>
+</div>
