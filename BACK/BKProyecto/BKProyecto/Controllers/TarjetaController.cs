@@ -75,16 +75,28 @@ namespace BKProyecto.Controllers
 
         // DELETE api/<TarjetaController>/5
         [HttpDelete("{id}")]
-        public async Task<AcceptedResult> Delete(int id)
+       public async Task<IActionResult> Delete (int id)
         {
-           try
+            try
             {
-
+                var tarjeta = await _context.TarjetaCredito.FindAsync(id);
+                if (tarjeta == null) 
+                { 
+                    return NotFound();
+                }
+                _context.TarjetaCredito.Remove(tarjeta);
+                await _context.SaveChangesAsync();
+                return Ok(new { message = "La tarjeta fué eliminada con éxito con éxito" });
             }
             catch (Exception ex) 
-            {
-                return BadRequest(ex)
+            { 
+            return BadRequest(ex.Message);
             }
+
+
+
+
+
         }
     }
 }
