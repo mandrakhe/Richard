@@ -11,7 +11,7 @@
     <div class="col lg-6">
         <div class="card">
             <div class="card-body">
-                <h5 class="titulo">Agregar la Tarjeta</h5>
+                <h5 class="titulo">{{accion}} la Tarjeta</h5>
                 <form [formGroup]="form"   (ngSubmit)="AgragarTarjeta()" >
                     <div class="input-group mb-3">
                         <span class="input-group-text" ><i class="fa-solid fa-user"
@@ -58,13 +58,13 @@
                 <h5 class="titulo">Listado de Tarjetas</h5>
                 <table class="table">
                     <thead>
-                        <tr *ngFor="let tarjeta of listTarjetas;let i=index">
+                        <tr *ngFor="let tarjeta of listTarjetas">
                             <td>{{tarjeta.titular}}</td>
                             <td>{{tarjeta.NumeroTarjeta}}</td>
                             <td>{{tarjeta.Expiracion}}</td>
                             <td>{{tarjeta.Cvv}}</td>
-                            <td><i class="fa-sharp fa-solid fa-pen-to-square  text-info "></i></td>
-                            <td><i (click)="EliminarTarjeta(i)" class="fa-sharp fa-solid fa-trash"></i></td>                       
+                            <td><i (click)="editarTarjeta(tarjeta)"  class="fa-sharp fa-solid fa-pen-to-square  text-info "></i></td>
+                            <td><i (click)="EliminarTarjeta(tarjeta.id)" class="fa-sharp fa-solid fa-trash"></i></td>                       
                         </tr>
                     </thead>
                 </table>

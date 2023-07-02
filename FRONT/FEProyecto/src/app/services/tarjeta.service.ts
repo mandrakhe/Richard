@@ -16,6 +16,14 @@ private Apiurl = "api/tarjeta/";
     return this.http.get(this.Appurl+this.Apiurl);
   }
   deleteTarjeta(id:number):Observable <any> {
-    return this.http.delete(this.Apiurl+this.Apiurl + '/'+id)
+    return this.http.delete(this.Apiurl+this.Apiurl + '/'+id);
   }
+  saveTarjeta(tarjeta:any):Observable <any> {
+    return this.http.post(this.Appurl+this.Apiurl,tarjeta);
+
+  }
+  updateTarjeta(id:number, tarjeta:any):Observable <any>{
+    return this.http.put(this.Appurl+this.Apiurl+'/'+id,tarjeta);
+  }
+  
 }

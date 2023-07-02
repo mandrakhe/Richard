@@ -9,8 +9,10 @@ import { TarjetaService } from 'src/app/services/tarjeta.service';
 })
 export class TarjetaCreditoComponent implements OnInit {
   listTarjetas: any[] = [];
+  accion = "Agregar";
 
   form: FormGroup;
+  id: number|undefined;
   constructor(
     private fb: FormBuilder,
     private toastr: ToastrService,
@@ -47,7 +49,7 @@ export class TarjetaCreditoComponent implements OnInit {
         this.listTarjetas = data;
       },
       (error) => {
-        console.log;
+        console.log();
       }
     );
   }
@@ -59,15 +61,53 @@ export class TarjetaCreditoComponent implements OnInit {
       NumeroTarjeta: this.form.get('NumeroTarjeta')?.value,
       Expiracion: this.form.get('Expiracion')?.value,
       Cvv: this.form.get('Cvv')?.value,
-    };
-    this.listTarjetas.push(tarjeta);
-    console.log(tarjeta);
+    }
 
+      if(this.id == undefined ){
+         this._tarjetaService.saveTarjeta(tarjeta).subscribe(data => {
     this.toastr.success('Tarjeta registrada con éxito', 'Tarjeta registrada');
+    this.obtenerTargetas ();
     this.form.reset();
+    },error=>{
+      this.toastr.error('Upppps Error Capa 8', 'Error');
+    })
+      }else{
+        tarjeta.id = this.id;
+        this._tarjetaService.updateTarjeta(this.id,tarjeta).subscribe(data => {
+          this.form.reset();
+          this.accion='Agregar'
+          this.id = undefined;
+          this.toastr.info('Tarjeta editada con éxito', 'Tarjeta editada');
+          this.obtenerTargetas();
+
+
+        },error=>{this.toastr.success('Tarjeta registrada con éxito', 'Tarjeta registrada');
+      })
+      }
+
+   
+    //console.log(tarjeta);
+
+    
   }
-  EliminarTarjeta(index: number) {
-    this.listTarjetas.splice(index, 1);
-    this.toastr.success('Tarjeta eliminada con éxito', 'Tarjeta eliminada');
+  EliminarTarjeta(id: number) {
+    this._tarjetaService.deleteTarjeta(id).subscribe(data=>{
+      this.toastr.error('Tarjeta eliminada con éxito', 'Tarjeta eliminada');
+      this.obtenerTargetas();
+    },error=>{
+      console.log(error);
+    })
+  }
+  editarTarjeta(tarjetaId: any) {
+    this.accion='Editar';
+    this.id=tarjetaId.id;
+    this.form.patchValue({
+      titular: tarjetaId.titular,
+      NumeroTarjeta:tarjetaId.NumeroTarjeta,
+         Expiracion:tarjetaId.Expiracion,
+                Cvv:tarjetaId.Cvv
+      
+          
+    });
   }
 }
