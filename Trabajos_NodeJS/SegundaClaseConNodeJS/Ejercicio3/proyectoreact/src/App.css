@@ -1,0 +1,74 @@
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.content {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+p {
+  font-size: 18px;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+ul {
+  font-size: 18px;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+img[alt="Guarson"] {
+  display: block;
+  max-width: 100%;
+  margin: 0 auto;
+  border-radius: 5px;
+ width: 500px;
+}
+
+
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f0f0f0;
+  padding: 10px 20px;
+}
+
+.navbar-brand {
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.navbar-menu {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.navbar-item {
+  cursor: pointer;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: xx-large;
+}
+
+.navbar-item:hover {
+  background-color: #e0e0e0;
+}
+.App-logo{
+
+  width: 100px;
+
+}
