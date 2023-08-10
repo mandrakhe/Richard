@@ -1,0 +1,58 @@
+﻿@model IEnumerable<PROYECTO_NET.Data.Student>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<style>
+    h1 {
+        margin-bottom: 4rem;
+    }
+
+    .botones {
+        text-decoration: none;
+        color: black;
+        font-size: 20px;
+        padding: 6px;
+    }
+
+        .botones:hover {
+            color: black;
+            background-color: azure;
+            border-radius: 10%;
+        }
+</style>
+<h1>Estudiantes</h1>
+
+<p>
+    <a class="botones" asp-action="Create">Crea un nuevo estudiante</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Datebir)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Datebir)
+            </td>
+            <td>
+                <a  class="botones"     asp-action="Edit" asp-route-id="@item.Id">Editar</a> |
+                <a  class="botones"     asp-action="Details" asp-route-id="@item.Id">Ver</a> |
+                <a  class="botones"     asp-action="Delete" asp-route-id="@item.Id">Eliminar</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,60 @@
+﻿@model IEnumerable<PROYECTO_NET.Data.Skill>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<style>
+    h1{
+        margin-bottom:4rem;
+    }
+    .botones {
+        text-decoration:none;
+        color:black;
+        font-size:20px;
+        padding:6px;
+    }
+
+    .botones:hover {
+            color:black;
+            background-color: azure;
+            border-radius:10%;
+    }
+</style>
+
+
+<h1>Crea una nueva competencia</h1>
+
+
+    
+    <a class="botones" asp-action="Create">Crear competencia</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.NameSkill)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NameSkill)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                <a  class="botones" asp-action="Edit" asp-route-id="@item.Id">Editar</a> |
+                <a  class="botones"asp-action="Details" asp-route-id="@item.Id">Ver</a> |
+                <a  class="botones" asp-action="Delete" asp-route-id="@item.Id">Borrar</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
