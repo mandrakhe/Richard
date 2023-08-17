@@ -13,8 +13,6 @@ app.use(cors());
 
 app.use('/api/productos',require('./routes/productoRoutes'));
 
-
-
 // app.get('/', (req, res) => {
 //     res.send("oli :D");
 // })
