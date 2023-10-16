@@ -6,8 +6,8 @@ export const connectDB = async ()=> {
         await mongoose.connect ("mongodb+srv://luisfernnandomb:KJvSvJXimFsyAbpS@cluster0.gclk8cj.mongodb.net/mernlogin")
         console.log(">> DB connect")
 
-    } catch (error) {
+    } catch (error) { 
         console.log(error);
-    }
+    } 
     
 }
