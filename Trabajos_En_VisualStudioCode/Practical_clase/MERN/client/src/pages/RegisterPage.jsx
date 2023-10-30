@@ -5,7 +5,7 @@ import { useAuth } from '../context/AuthContext';
 function RegisterPage() {
 
     const { register, handleSubmit, formState: { errors } } = useForm();
-    const {singup,isAuthenticated,erroros:RegisterErrors} = useAuth();
+    const {singup,isAuthenticated,errors:RegisterErrors} = useAuth();
     const navigate = useNavigate();
 
     useEffect(()=>{
@@ -18,11 +18,14 @@ function RegisterPage() {
 
 
     return (
+        <div className='flex h-[calc(100vh-100px)] items-center justify-center'>
+
+        
         <div className="bg-zinc-800 max-w-md p-10 rounded-md">
 
 {
     RegisterErrors && Array.isArray(RegisterErrors) && RegisterErrors.map((error, i) => (
-        <div className="bg-red-500 text-white p-2" key={i}>
+        <div className="bg-red-500 text-white p-2 my-2" key={i}>
             {error}
         </div>
     ))
@@ -55,7 +58,7 @@ function RegisterPage() {
             </form>
 
         </div>
-
+</div>
     );
 }
 

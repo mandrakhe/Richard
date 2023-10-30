@@ -3,6 +3,7 @@ import { registerRequest } from "../api/auth";
 
 export const AuthContext = createContext();
 
+// eslint-disable-next-line react-refresh/only-export-components
 export const useAuth = () => {
     const context  = useContext(AuthContext);
     if(!context) {
@@ -11,6 +12,7 @@ export const useAuth = () => {
     return context;
 }
 
+// eslint-disable-next-line react/prop-types
 export const AuthProvider = ({children}) => {
     const [user, setUser] = useState(null);
     const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -28,10 +30,24 @@ export const AuthProvider = ({children}) => {
             console.log(error);
         }
     }
+
+    const singin = async (user) => {
+        try {
+            // eslint-disable-next-line no-undef
+            const res = await loginRequest(user);
+            console.log(res.data);
+            setUser(res.data);
+            setIsAuthenticated(true);
+        } catch (error) {
+            console.log(error)
+            setErrors(error.response.data);
+        }
+    }
     
     return (
         <AuthContext.Provider value={{
             singup,
+            singin,
             user,
             isAuthenticated,
             errors
