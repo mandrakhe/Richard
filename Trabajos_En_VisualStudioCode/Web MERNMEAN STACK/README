@@ -1,1 +1,85 @@
-hoal
+¡Manos a la obra!
+
+En este punto es muy importante que vayas describiendo cada paso que realizaste, así
+como posibles dificultades que tuviste al desarrollarlo y la solución que encontraste, toda
+ira en un documento de Word o PDF, incluyendo capturas del código y de la aplicación.
+
+1. Escoge la tecnología que vas a utilizar para este desarrollo (ReactJS o Angular)
+
+2. Crea una carpeta con la siguiente estructura: stack_’tecnologiaUtilizada’. (ejemplo:
+stack_angular o stack_react)
+
+3. Dentro de esa carpeta crea un proyecto del Framework de tu elección con el nombre
+notes_app_sps y se incluirá el código del backend
+
+El proyecto constara de dos partes, un backend tipo CRUD utilizando MongoDB y
+Express el cual deberás desarrollar y alojar en la nube de tu preferencia (AWS, GCP,
+Azure, Oracle), y un frontend que mostrara la información correspondiente y
+realizara las peticiones a tu backend
+
+Explicación General y Funcionamiento:
+Backend
+Contendrá un proyecto de Node.js con conexión a MongoDB Atlas para almacenar
+los datos (es importante configurar el proyecto para que cualquiera pueda acceder
+a la base ya que se probará para validar su funcionamiento de manera local), deberá
+de ser capaz de realizad las siguientes acciones: Creación de Nota, Creación de
+Usuario, Obtener datos de Nota, Obtener datos de usuario, Eliminar nota y Eliminar
+usuario
+
+
+
+Realizado por: José Luis Martínez
+Las rutas de la API deberán mostrarse de la siguiente manera:
+• servicio/api_notes_app/users (para la sección de Usuarios)
+• servicio/api_notes_app/notes (para la sección de Notas)
+Posteriormente todo tu desarrollo de backend deberá ser alojado en la nube de tu
+preferencia (puede ser Heroku, Netlify, Azure, AWS, GCP, OracleCloud) el cual te
+servirá para desarrollar la parte de frontend
+Frontend
+
+La aplicación NotesApp tendrá conexión con tu backend para realizar las peticiones
+correspondientes a cada acción, incluirá un navbar con un Navbrand en donde se
+mostrará el titulo del proyecto “NotesApp” menú de navegación que incluye Notes,
+Create Note y Create, a continuación, se explicará el funcionamiento de cada sección
+del menú:
+
+Notes (sección mostrada al cargar index), en la cual se mostrarán tarjetas (cards)
+con la siguiente información: Titulo, botón para editar información, Información de
+la tarjeta, nombre del creador de la tarjeta, fecha de creación y un botón para
+eliminar la tarjeta, estas tarjetas y el diseño en general de la App quedan a tu
+consideración, puedes darle los estilos que desees, lo importante es que sea
+funcional
+
+
+
+
+Realizado por: José Luis Martínez
+Create Note mostrará un formulario en la parte superior central de la pantalla
+con la siguiente información: una lista desplegable que mostrará los usuarios
+disponibles dentro de esta App, un TextInput relacionado al titulo de la tarjeta, un
+TextArea relacionado al contenido de la tarjeta, un DatePicker relacionado a la fecha
+de creación de la tarjeta y un botón de guardar
+Ejemplo sección Create Note:
+
+Al dar clic en el botón de editar de cada tarjeta, mostrará un formulario con la
+información de dicha tarjeta donde se podrán editar sus datos y actualizarlos
+Ejemplo sección Edit Note:
+
+
+
+
+Realizado por: José Luis Martínez
+Create User del lado izquierdo mostrará una un recuadro con un TextInput en
+donde escribirá el nombre del usuario a guardar y un botón para guardar este
+usuario, del lado derecho mostrará un listado con los nombres de los usuarios
+creados
+Ejemplo sección Create User:
+
+Finalmente, el desarrollo de tu frontend deberá ser alojado en la nube de tu
+preferencia (puede ser Heroku, Netlify, Azure, AWS, GCP, OracleCloud), el link de
+esta aplicación debe ser anexado en la documentación o en el repositorio
+4. Guarda todo en un repositorio de GitHub, el nombre del repositorio debe de tener
+la siguiente estructura: nombre_prueba_sps, dentro debe de contener una carpeta
+stack_’tecnolgiaUtilizada’ con el código (ejemplo: stack_angular o stack_react) y la
+documentación en formato Word o PDF además se deben de anexar como archivo
+adjunto al correo. 
